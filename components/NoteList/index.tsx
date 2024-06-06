@@ -8,8 +8,8 @@ interface NoteListProps {
   notes: Note[];
   removeNote: (id: string) => void;
 }
+
 export const NoteList = ({ notes, removeNote }: NoteListProps) => {
-  console.log(notes);
   const [checked, setChecked] = useState("first");
   if (notes.length > 0) {
     return (

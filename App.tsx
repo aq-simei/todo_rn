@@ -18,17 +18,14 @@ export default function App() {
   const [allNotes, setAllNotes] = useState<Note[]>([]);
 
   const handleRemoveNote = (id: string) => {
-    console.log("handleRemoveNote | id is => " + id);
     setAllNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
   };
 
   const handleTextInputChanged = (text: string) => {
-    console.log(text);
     setNoteInputField(text);
   };
 
   const handleConfirmAddNote = () => {
-    console.log("handleConfirmAddNote | all notes is => " + allNotes);
     if (noteInputField.length > 0) {
       setAllNotes((prevNotes) => [
         ...prevNotes,
@@ -47,7 +44,6 @@ export default function App() {
   };
   const [fontsLoaded, setFontsLoaded] = useState(false);
   useEffect(() => {
-    console.log(allNotes);
     async function loadResources() {
       await loadFonts();
       setFontsLoaded(true);
@@ -63,7 +59,6 @@ export default function App() {
       paddingBottom: 16,
     },
   });
-  console.log(`onRender => ${allNotes}`);
   return (
     <View style={styles.container}>
       <Header />
